@@ -1,4 +1,95 @@
-# MoE
+# GW-SMM: Efficient Multi-Task Model Merging for Automated Scoring
+
+This repository contains code, data samples, and experimental notebooks for the paper:
+
+---
+
+## Overview
+
+**GW-SMM** (Gromov-Wasserstein Scoring Model Merging) is a model merging framework that consolidates task-specific BERT-based scoring models for educational assessments. Instead of deploying separate models for each task, GW-SMM identifies mergeable models based on the structural similarity of learned student response features. Using Gromov-Wasserstein (GW) optimal transport, the method aligns feature distributions and merges only shared layers, reducing computational overhead while maintaining accuracy.
+
+---
+
+## Core Contributions
+
+- **GW-based Alignment**: Measures similarity of task-specific BERT embeddings using Gromov-Wasserstein distance.
+- **Modular Merging**: Merges encoder layers, retains separate classifier heads for task-specific outputs.
+- **Empirical Validation**: Outperforms human and GPT-generated merging plans on NGSS-aligned multi-label science assessments.
+- **Efficiency**: Achieves 3× storage reduction with minimal accuracy degradation.
+
+---
+
+## Repository Structure
+
+```
+.
+├── MoE_AIED.pdf                         # AIED 2025 paper
+├── embedding_multi_label_modeling.ipynb # Embedding and multi-label modeling baseline
+├── offical_pretrain_and_test.ipynb      # Pretraining and evaluation workflow
+├── GrWassDist.ipynb                     # Gromov-Wasserstein distance calculations
+├── model_merge.ipynb                    # Model merging logic (encoder sharing)
+├── method1_gw_results.txt               # Logs/results for merged models (GW-SMM)
+├── result.csv                           # Task-wise evaluation metrics
+└── radar_plot.py                        # (Old) radar plots for per-task comparison
+```
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-org/MoE-AIED.git
+cd MoE-AIED
+```
+
+### 2. Environment Setup
+
+We recommend creating a virtual environment:
+
+```bash
+conda create -n gw-smm python=3.9
+conda activate gw-smm
+pip install -r requirements.txt
+```
+
+> Required packages include: `transformers`, `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `ot` (for optimal transport), and `torch`.
+
+---
+
+## Usage
+
+### Step 1: Train Individual Models
+
+Use `embedding_multi_label_modeling.ipynb` and `offical_pretrain_and_test.ipynb` to:
+- Tokenize student responses
+- Train task-specific BERT classifiers
+- Evaluate individual model performance
+
+### Step 2: Compute Feature Representations
+
+```python
+# See: GrWassDist.ipynb
+# Extract [CLS] features and compute GW distances
+```
+
+### Step 3: Perform Model Merging
+
+```python
+# See: model_merge.ipynb
+# Use GW distances to determine mergeable groups
+# Apply encoder merging + classifier head reuse
+```
+
+### Step 4: Fine-tune and Evaluate
+
+- Fine-tune classifier heads post-merging  
+- Evaluate using metrics: Micro/Macro F1, Exact Match, Per-label Accuracy
+
+Logs are available in: `method1_gw_results.txt`
+
+---
 
 ## Dataset Overview
 
@@ -42,6 +133,28 @@ A structured scoring rubric was developed to encompass five response dimensions,
 | Task 9 | Natural Sugar                 | 5          | 956            | 239           |
 
 ---
+
+### Merging Plans and Performance Comparison
+
+**Table: Merging plans and average performance comparison of each method.**  
+The best result for each metric is **bolded** among the merging methods.
+
+| **Method**         | **Merge Plan**         | **Micro F1** | **Macro F1** | **Exact Match** | **Per-label Accuracy** |
+|--------------------|------------------------|--------------|--------------|------------------|-------------------------|
+| GW-SMM             | (1,2,8), (4,6,7)       | **0.6872**   | **0.5414**   | **0.5419**       | **0.8507**              |
+| GPT-o1             | (3,4,8,9), (5,6)       | 0.6271       | 0.4895       | 0.4883           | 0.8255                  |
+| Human Knowledge    | (1,2), (5,6), (7,8,9)  | 0.6741       | 0.5298       | 0.5211           | 0.8331                  |
+| **Pre-Merged**     | -                      | 0.8291       | 0.7370       | 0.6549           | 0.8951                  |
+
+Fig. ![HeatMap](figheatmap.png)  and the table above summarize the resulting merging plans and their average performance across four evaluation metrics. We report weighted means, with weights proportional to testing sample sizes to account for class imbalance. **GW-SMM consistently outperforms other methods**, achieving the highest scores in Micro F1 (0.6872 vs. 0.6741 and 0.6271), Macro F1 (0.5414 vs. 0.5298 and 0.4895), Exact Match Accuracy (0.5419 vs. 0.5211 and 0.4883), and Per-label Accuracy (0.8507 vs. 0.8331 and 0.8255). While merging inevitably reduces performance relative to the Pre-Merge upper bound, GW-SMM minimizes this loss more effectively than Human or GPT-o1, making it the most reliable strategy for balancing merging efficiency and accuracy.
+
+---
+
+
+## License
+
+This project is released under the MIT License.
+
 
 ## References
 

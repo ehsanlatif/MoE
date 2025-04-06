@@ -1,0 +1,315 @@
+========== Method 1: GW-SMM method ==========
+--- Testing task 1 with merged(1,2,8) ---
+Loading training data...
+[Info] Detected 4 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.2247
+[Epoch 2/10] Loss: 0.2153
+[Epoch 3/10] Loss: 0.2089
+[Epoch 4/10] Loss: 0.2009
+[Epoch 5/10] Loss: 0.1941
+[Epoch 6/10] Loss: 0.1883
+[Epoch 7/10] Loss: 0.1863
+[Epoch 8/10] Loss: 0.1818
+[Epoch 9/10] Loss: 0.1782
+[Epoch 10/10] Loss: 0.1751
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.7699
+[Evaluation] Per-label Accuracy:   0.9257322175732218
+[Evaluation] Micro F1 Score:       0.8600
+[Evaluation] Macro F1 Score:       0.3865
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.93      0.99      0.96       201
+          E2       0.00      0.00      0.00        16
+          E4       0.68      0.51      0.58        37
+          E5       0.00      0.00      0.00        10
+
+   micro avg       0.90      0.83      0.86       264
+   macro avg       0.40      0.38      0.39       264
+weighted avg       0.81      0.83      0.81       264
+ samples avg       0.81      0.77      0.77       264
+
+--- Testing task 2 with merged(1,2,8) ---
+Loading training data...
+[Info] Detected 4 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.5752
+[Epoch 2/10] Loss: 0.5616
+[Epoch 3/10] Loss: 0.5458
+[Epoch 4/10] Loss: 0.5347
+[Epoch 5/10] Loss: 0.5255
+[Epoch 6/10] Loss: 0.5146
+[Epoch 7/10] Loss: 0.5071
+[Epoch 8/10] Loss: 0.5037
+[Epoch 9/10] Loss: 0.4937
+[Epoch 10/10] Loss: 0.4900
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.4072
+[Evaluation] Per-label Accuracy:   0.7529940119760479
+[Evaluation] Micro F1 Score:       0.4369
+[Evaluation] Macro F1 Score:       0.2897
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.85      0.54      0.66        94
+          E2       0.50      0.06      0.11        68
+          E3       0.75      0.26      0.39        34
+          E4       0.00      0.00      0.00        17
+
+   micro avg       0.80      0.30      0.44       213
+   macro avg       0.53      0.22      0.29       213
+weighted avg       0.65      0.30      0.39       213
+ samples avg       0.31      0.17      0.21       213
+
+--- Testing task 8 with merged(1,2,8) ---
+Loading training data...
+[Info] Detected 6 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.5156
+[Epoch 2/10] Loss: 0.5048
+[Epoch 3/10] Loss: 0.4949
+[Epoch 4/10] Loss: 0.4939
+[Epoch 5/10] Loss: 0.4853
+[Epoch 6/10] Loss: 0.4874
+[Epoch 7/10] Loss: 0.4817
+[Epoch 8/10] Loss: 0.4759
+[Epoch 9/10] Loss: 0.4738
+[Epoch 10/10] Loss: 0.4742
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.2256
+[Evaluation] Per-label Accuracy:   0.7693089430894309
+[Evaluation] Micro F1 Score:       0.7173
+[Evaluation] Macro F1 Score:       0.4217
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.80      1.00      0.89       131
+          E2       0.74      0.64      0.69        89
+          E3       0.75      0.85      0.80       114
+          E4       0.50      0.03      0.06        30
+          E5       0.67      0.05      0.10        38
+          E7       0.00      0.00      0.00        25
+
+   micro avg       0.77      0.67      0.72       427
+   macro avg       0.58      0.43      0.42       427
+weighted avg       0.69      0.67      0.64       427
+ samples avg       0.74      0.60      0.64       427
+
+--- Testing task 4 with merged(4,6,7) ---
+Loading training data...
+[Info] Detected 3 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.5242
+[Epoch 2/10] Loss: 0.4978
+[Epoch 3/10] Loss: 0.4788
+[Epoch 4/10] Loss: 0.4713
+[Epoch 5/10] Loss: 0.4595
+[Epoch 6/10] Loss: 0.4519
+[Epoch 7/10] Loss: 0.4458
+[Epoch 8/10] Loss: 0.4408
+[Epoch 9/10] Loss: 0.4355
+[Epoch 10/10] Loss: 0.4276
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.5827
+[Evaluation] Per-label Accuracy:   0.8045563549160671
+[Evaluation] Micro F1 Score:       0.2419
+[Evaluation] Macro F1 Score:       0.2347
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.67      0.12      0.20        68
+          E2       0.67      0.08      0.14        53
+          E4       0.58      0.27      0.37        52
+
+   micro avg       0.62      0.15      0.24       173
+   macro avg       0.64      0.15      0.23       173
+weighted avg       0.64      0.15      0.23       173
+ samples avg       0.05      0.05      0.05       173
+
+--- Testing task 6 with merged(4,6,7) ---
+Loading training data...
+[Info] Detected 10 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.5807
+[Epoch 2/10] Loss: 0.5516
+[Epoch 3/10] Loss: 0.5239
+[Epoch 4/10] Loss: 0.5031
+[Epoch 5/10] Loss: 0.4864
+[Epoch 6/10] Loss: 0.4740
+[Epoch 7/10] Loss: 0.4607
+[Epoch 8/10] Loss: 0.4464
+[Epoch 9/10] Loss: 0.4418
+[Epoch 10/10] Loss: 0.4335
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.2375
+[Evaluation] Per-label Accuracy:   0.82125
+[Evaluation] Micro F1 Score:       0.7337
+[Evaluation] Macro F1 Score:       0.5561
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.81      0.99      0.89       182
+          E2       0.88      0.52      0.65        94
+          E3       0.66      0.91      0.77       122
+          E4       0.74      0.81      0.77       114
+          E5       0.83      0.81      0.82       115
+          E6       1.00      0.30      0.46        54
+          E7       0.00      0.00      0.00        42
+          E8       0.94      0.53      0.67        55
+          E9       0.95      0.36      0.53        58
+         E10       0.00      0.00      0.00        25
+
+   micro avg       0.79      0.69      0.73       861
+   macro avg       0.68      0.52      0.56       861
+weighted avg       0.76      0.69      0.69       861
+ samples avg       0.69      0.61      0.62       861
+
+--- Testing task 7 with merged(4,6,7) ---
+Loading training data...
+[Info] Detected 5 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.4971
+[Epoch 2/10] Loss: 0.4737
+[Epoch 3/10] Loss: 0.4505
+[Epoch 4/10] Loss: 0.4329
+[Epoch 5/10] Loss: 0.4173
+[Epoch 6/10] Loss: 0.4067
+[Epoch 7/10] Loss: 0.3976
+[Epoch 8/10] Loss: 0.3968
+[Epoch 9/10] Loss: 0.3903
+[Epoch 10/10] Loss: 0.3797
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.4714
+[Evaluation] Per-label Accuracy:   0.8485714285714285
+[Evaluation] Micro F1 Score:       0.6205
+[Evaluation] Macro F1 Score:       0.5423
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.65      0.72      0.68        46
+          E2       0.86      0.72      0.78        50
+          E3       0.91      0.56      0.69        88
+          E4       0.00      0.00      0.00        45
+          E5       0.80      0.43      0.56        28
+
+   micro avg       0.80      0.51      0.62       257
+   macro avg       0.64      0.48      0.54       257
+weighted avg       0.68      0.51      0.57       257
+ samples avg       0.21      0.22      0.21       257
+
+--- Testing task 3 with merged(3,9) ---
+Loading training data...
+[Info] Detected 5 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.5034
+[Epoch 2/10] Loss: 0.4882
+[Epoch 3/10] Loss: 0.4772
+[Epoch 4/10] Loss: 0.4691
+[Epoch 5/10] Loss: 0.4614
+[Epoch 6/10] Loss: 0.4593
+[Epoch 7/10] Loss: 0.4502
+[Epoch 8/10] Loss: 0.4432
+[Epoch 9/10] Loss: 0.4427
+[Epoch 10/10] Loss: 0.4393
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.4042
+[Evaluation] Per-label Accuracy:   0.8241666666666667
+[Evaluation] Micro F1 Score:       0.7621
+[Evaluation] Macro F1 Score:       0.6767
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.87      0.94      0.91       160
+          E2       0.84      0.71      0.77       123
+          E3       0.86      0.43      0.57        42
+          E4       0.58      0.39      0.47        38
+          E5       0.85      0.55      0.67       121
+
+   micro avg       0.84      0.70      0.76       484
+   macro avg       0.80      0.61      0.68       484
+weighted avg       0.83      0.70      0.75       484
+ samples avg       0.59      0.47      0.49       484
+
+--- Testing task 9 with merged(3,9) ---
+Loading training data...
+[Info] Detected 5 classes from training data.
+Initializing a new BertForSequenceClassification model...
+Transferring encoder parameters from merged model...
+Transferring classification head from original model...
+[Info] Model is ready: Encoder from merged model, Classifier from original model. Fine-tuning classifier head only.
+[Info] Fine-tuning classifier head on training dataset.
+[Epoch 1/10] Loss: 0.5334
+[Epoch 2/10] Loss: 0.5248
+[Epoch 3/10] Loss: 0.5159
+[Epoch 4/10] Loss: 0.5126
+[Epoch 5/10] Loss: 0.5085
+[Epoch 6/10] Loss: 0.5070
+[Epoch 7/10] Loss: 0.5009
+[Epoch 8/10] Loss: 0.4955
+[Epoch 9/10] Loss: 0.4936
+[Epoch 10/10] Loss: 0.4918
+[Info] Classifier fine-tuning completed.
+
+Loading test data...
+[Evaluation] Exact Match Accuracy: 0.4226
+[Evaluation] Per-label Accuracy:   0.7648535564853557
+[Evaluation] Micro F1 Score:       0.4414
+[Evaluation] Macro F1 Score:       0.3153
+[Evaluation] Classification Report:
+              precision    recall  f1-score   support
+
+          E1       0.79      0.33      0.46        83
+          E2       0.90      0.11      0.20        79
+          E3       0.77      0.67      0.71       105
+          E4       1.00      0.04      0.08        49
+          E5       1.00      0.06      0.12        47
+
+   micro avg       0.79      0.31      0.44       363
+   macro avg       0.89      0.24      0.32       363
+weighted avg       0.86      0.31      0.38       363
+ samples avg       0.29      0.16      0.19       363
+
