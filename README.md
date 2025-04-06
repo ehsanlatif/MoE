@@ -8,6 +8,11 @@ This repository contains code, data samples, and experimental notebooks for the 
 
 **GW-SMM** (Gromov-Wasserstein Scoring Model Merging) is a model merging framework that consolidates task-specific BERT-based scoring models for educational assessments. Instead of deploying separate models for each task, GW-SMM identifies mergeable models based on the structural similarity of learned student response features. Using Gromov-Wasserstein (GW) optimal transport, the method aligns feature distributions and merges only shared layers, reducing computational overhead while maintaining accuracy.
 
+### Overview Diagram
+Below is a visual representation of the GW-SMM overview:
+
+![workflow](./workflow.png)
+
 ---
 
 ## Core Contributions
@@ -22,7 +27,6 @@ This repository contains code, data samples, and experimental notebooks for the 
 ## Repository Structure
 
 ```
-.
 ├── MoE_AIED.pdf                         # AIED 2025 paper
 ├── embedding_multi_label_modeling.ipynb # Embedding and multi-label modeling baseline
 ├── offical_pretrain_and_test.ipynb      # Pretraining and evaluation workflow
@@ -146,7 +150,7 @@ The best result for each metric is **bolded** among the merging methods.
 | Human Knowledge    | (1,2), (5,6), (7,8,9)  | 0.6741       | 0.5298       | 0.5211           | 0.8331                  |
 | **Pre-Merged**     | -                      | 0.8291       | 0.7370       | 0.6549           | 0.8951                  |
 
-Fig. ![HeatMap](figheatmap.png)  and the table above summarize the resulting merging plans and their average performance across four evaluation metrics. We report weighted means, with weights proportional to testing sample sizes to account for class imbalance. **GW-SMM consistently outperforms other methods**, achieving the highest scores in Micro F1 (0.6872 vs. 0.6741 and 0.6271), Macro F1 (0.5414 vs. 0.5298 and 0.4895), Exact Match Accuracy (0.5419 vs. 0.5211 and 0.4883), and Per-label Accuracy (0.8507 vs. 0.8331 and 0.8255). While merging inevitably reduces performance relative to the Pre-Merge upper bound, GW-SMM minimizes this loss more effectively than Human or GPT-o1, making it the most reliable strategy for balancing merging efficiency and accuracy.
+![HeatMap](figheatmap.png)  and the table above summarize the resulting merging plans and their average performance across four evaluation metrics. We report weighted means, with weights proportional to testing sample sizes to account for class imbalance. **GW-SMM consistently outperforms other methods**, achieving the highest scores in Micro F1 (0.6872 vs. 0.6741 and 0.6271), Macro F1 (0.5414 vs. 0.5298 and 0.4895), Exact Match Accuracy (0.5419 vs. 0.5211 and 0.4883), and Per-label Accuracy (0.8507 vs. 0.8331 and 0.8255). While merging inevitably reduces performance relative to the Pre-Merge upper bound, GW-SMM minimizes this loss more effectively than Human or GPT-o1, making it the most reliable strategy for balancing merging efficiency and accuracy.
 
 ---
 
